@@ -17,7 +17,7 @@ function App() {
   }
   
   React.useEffect(()=>{
-    fetch('http://localhost:5000/numbers')
+    fetch('http://server:5000/numbers')
     .then(r=>r.json())
     .then(r=>setData(r)).catch(e=>console.log(e))
   }, [result])
