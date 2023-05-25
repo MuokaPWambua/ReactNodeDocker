@@ -1,27 +1,22 @@
 import React from 'react';
 import './App.css';
 import { saveToFirebase } from './utils';
+import useFetchCalc from './customHook'
 
 function App() {
   const [result, setResult] = React.useState(0)
   const [a, setA] = React.useState(0)
   const [b, setB] = React.useState(0)
-  const [data, setData] = React.useState([])
+  const data = useFetchCalc(result)
 
   const add = (e) =>{
     e.preventDefault();
     const sum = parseInt(a) + parseInt(b);
-    setResult(sum)
     const calc = {a:a, b: b, sum:sum}
+    setResult(sum)
     saveToFirebase(calc)
   }
-  
-  React.useEffect(()=>{
-    fetch('http://server:5000/numbers')
-    .then(r=>r.json())
-    .then(r=>setData(r)).catch(e=>console.log(e))
-  }, [result])
-  console.log(data)
+
   return (
     <div className="App">
       <header>

@@ -15,8 +15,10 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-COPY --from=build /app/build .
+COPY --from=build /app/build /app/build
 
 RUN npm install -g serve
 
-CMD ["serve", "-p", "3000", "-s", "."]
+ENTRYPOINT [ "serve" ]
+
+CMD ["-p", "3000", "-s", "/app/build"]

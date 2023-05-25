@@ -1,5 +1,5 @@
 export const saveToFirebase = (data) => {
-  fetch('http://server:5000/save',{
+  fetch('http://localhost:5000/save',{
     method: 'POST',
     headers:{'Content-Type': 'application/json', 'Accept-Type': 'application/json'},
     body: JSON.stringify(data)
