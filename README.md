@@ -1,8 +1,10 @@
 # How To Run
 ### Requirements
 - docker 
+- docker-compose
 - firebase account
 - nodejs
+- firebase_admin
 - firebase credidential json file
 
 ### Application Structure
@@ -17,7 +19,7 @@
             - Dockerfile
             - ...
 
-        - server (sub directory responisible for holding our react files)
+        - server (sub directory responisible for holding our node files)
             - creds.json
             - Dockerfile
             - app.js
